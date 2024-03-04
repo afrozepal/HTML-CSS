@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        background-image: url('job.jpg');
+        background-attachment: fixed;
+        background-size: 100% auto;
+    }
+    section{
+        background-color: grey;
+        position: relative;
+        width: 50%; /* Set the width of the sections */
+        margin: 0 auto; /* Center horizontally */
+        padding: 20px;
+        margin-bottom: 20px; /* space between sections */
+        border-radius: 20px;
+    }
+    .h1{
+        color: aliceblue;
+    }
+
+    .input{
+        padding: 5px;
+        width:35%;
+        border-radius: 10px;
+    }
+    .submit{
+        background-color: gray;
+        padding: 15px;
+        border-radius: 5px;
+        width: 25%;
+        font-weight: bold;
+        font-size: 1.2em;
+        position: relative;
+        margin: 0 auto; /* Center horizontally */
+        margin-bottom: 20px; /* space between sections */
+    }
+    form{
+        text-align: center; /* text in center */
+    }
+    div{
+        text-align: center;
+    }
+    .table{
+        display: none;
+        background-color: grey;
+        position: relative;
+        width: 50%; /* Set the width of the sections */
+        margin: 0 auto; /* Center horizontally */
+        padding: 20px;
+        margin-bottom: 20px; /* space between sections */
+        border-radius: 20px;
+        text-align: center;
+    }
+</style>
+<body>
+    
+    <form id="jobApplicationForm" action="/job-form" method="POST">
+
+        <h1 class="h1">JOB APPLICATION FORM</h1>
+        <br> <br> <br> 
+        <section>
+            <h1>PERSONAL INFORMATION</h1>
+            <input type="text" class="input" name="firstName" placeholder="First Name" required>
+            <br><br>
+            <input type="text" class="input" name="lastName" placeholder="Last Name" required>
+            <br><br>
+            <input type="tel" class="input" name="telephone" pattern="[0-9]{4}-[0-9]{7}" placeholder="Format: 0300-9403439" required>
+            <br><br>
+            <input type="email" class="input" name="email" placeholder="Email" required>
+            <br><br>
+            <input type="text" class="input" name="street" placeholder="Street" required>
+            <br><br>
+            <input type="text" class="input" name="city" placeholder="City" required>
+            <br><br>
+            <input type="text" class="input" name="state" placeholder="State" required>
+            <br><br>
+            <input type="text" class="input" name="zipcode" placeholder="5 digit Zip Code" pattern="[0-9]{5}" required>
+            <br><br>
+        </section>
+
+        <section>
+            <h1>RESUME AND COVER LETTER</h1>
+            <input type="file" class="input" placeholder="Resume" name="resume" accept=".pdf,.doc,.docx" required>
+            <br><br>
+            <textarea class="input" placeholder="Cover Letter" name="coverLetter" rows="4" required></textarea>
+        </section>
+
+        <section>
+            <h1>EDUCATION</h1>
+            <input type="text" class="input" name="educationLevel" placeholder="Education Level" required>
+            <br><br>
+            <input type="text" class="input" name="schoolName" placeholder="School Name" required>
+            <br><br>
+            <input type="text" class="input" name="major" placeholder="Major" required>
+            <br><br>
+            <input type="text" class="input" name="graduationYear" placeholder="Graduation Year" pattern="[0-9]{4}" placeholder="Year" required><br><br>
+
+        </section>
+
+        <section>
+            <h1>PREVIOUS JOB TITLES</h1>
+            <textarea class="input" name="companyNames" placeholder="Enter multiple company names, separated by commas"></textarea>
+            <br><br>
+            <textarea class="input" name="employmentDates" placeholder="Enter employment dates, each on a new line"></textarea>
+            <br><br>
+            <textarea type="text" class="input" name="jobResponsibilities" placeholder="Job Responsibilities"></textarea>
+
+        </section>
+
+        <section>
+            <h1>SKILLS</h1>
+            <select id="relevantSkills" name="relevantSkills" class="input" required>
+                <option value="">Select a skill...</option>
+                <option value="programming">Programming</option>
+                <option value="design">Design and Analysis</option>
+                <option value="debug">Debugging</option>
+                <option value="other">Other</option>
+            </select>
+            <br><br>
+            <input type="file" class="input" placeholder="Certifications" name="certifications">
+        </section>
+
+        <section>
+            <h1>AVAILABILITY</h1>
+            <label for="startDate" class="input" >Start Date:</label> <br>
+            <input type="date" placeholder="Start Date" class="input" name="startDate" required>
+            <br><br>
+            <input type="text" placeholder="Preferred Schedule" class="input" name="preferredSchedule" required>
+            <br><br>
+            <label for="relocate">Willingness to Relocate:</label><br>
+            <select class="input" name="relocate" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </section>
+
+        <section>
+            <h1>REFERENCES</h1>
+            <input type="text" class="input" placeholder="Reference Name" name="referenceName">
+            <br><br>
+            <input type="text" class="input" placeholder="Reference Contact" name="referenceContact">
+            <br><br>
+            <input type="text" class="input" placeholder="Relationship" name="relationship">
+        </section>
+
+        <section>
+            <h1>ADDITIONAL QUESTIONS</h1>
+            <textarea class="input" placeholder="Why do you want to work for this company?" name="whyWorkHere" rows="4" ></textarea>
+        </section>
+
+        <section>
+            <h1>CONSENT AND AGREEMENT</h1>
+            <label>
+                <input type="checkbox" name="termsAgreement" required>
+                I agree to the terms and conditions
+            </label>
+            <br><br>
+            <label>
+                <input type="checkbox" name="privacyPolicy" required>
+                I acknowledge the privacy policy
+            </label>
+        </section>
+        <br><br> 
+        
+        <button type="submit" class="submit">Submit</button>
+            <br>
+
+    </form>
+
+    <!-- Divs for displaying tables -->
+    <div class="table" id="personalInfoTable"></div> 
+    <div class="table" id="resumeTable"></div> 
+    <div class="table" id="educationTable"></div> 
+    <div class="table" id="jobTitlesTable"></div> 
+    <div class="table" id="skillsTable"></div> 
+    <div class="table" id="availabilityTable"></div> 
+    <div class="table" id="referencesTable"></div> 
+    <div class="table" id="additionalQuestionsTable"></div> 
+    <div class="table" id="consentTable"></div> 
+
+    <div>
+        <button id="viewPersonalInfoBtn" class="submit" >View Application as Table</button>
+    </div>
+
+</body>
+<script>
+    // Array to store submitted application data
+    let submittedApplications = [];
+
+    // all required are filled checking
+    function validateForm() {
+        let isValid = true;
+    
+        const requiredFields = document.querySelectorAll("[required]");
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            alert("Please fill out all required fields.");
+        }
+
+        return isValid;
+    }
+
+    // Function to process form data
+    function processFormData() {
+        // form element
+        const form = document.getElementById('jobApplicationForm');
+
+        // Get form data
+        const formData = {
+            firstName: form.elements.firstName.value,
+            lastName: form.elements.lastName.value,
+            email: form.elements.email.value,
+            telephone: form.elements.telephone.value,
+            street: form.elements.street.value,
+            city: form.elements.city.value,
+            state: form.elements.state.value,
+            zipcode: form.elements.zipcode.value,
+        };
+        const form2Data= {
+            resume: form.elements.resume.value,
+            coverLetter: form.elements.coverLetter.value,
+        }
+        const form3Data= {
+            educationLevel: form.elements.educationLevel.value,
+            schoolName: form.elements.schoolName.value,
+            major: form.elements.major.value,
+            graduationYear: form.elements.graduationYear.value,
+        }
+        const form4Data= {
+            companyNames: form.elements.companyNames.value,
+            employmentDates: form.elements.employmentDates.value,
+            jobResponsibilities: form.elements.jobResponsibilities.value,
+        }
+        const form5Data= {
+            relevantSkills: form.elements.relevantSkills.value,
+            certifications: form.elements.certifications.value,
+        }
+        const form6Data= {
+            startDate: form.elements.startDate.value,
+            preferredSchedule: form.elements.preferredSchedule.value,
+            relocate: form.elements.relocate.value,
+        }
+        const form7Data= {
+            referenceName: form.elements.referenceName.value,
+            referenceContact: form.elements.referenceContact.value,
+            relationship: form.elements.relationship.value,
+        }
+        const form8Data= {
+            whyWorkHere: form.elements.whyWorkHere.value,
+        }
+        const form9Data= {
+            termsAgreement: form.elements.termsAgreement.checked,
+            privacyPolicy: form.elements.privacyPolicy.checked
+        }
+        submittedApplications.push(formData);
+        submittedApplications.push(form2Data);
+        submittedApplications.push(form3Data);
+        submittedApplications.push(form4Data);
+        submittedApplications.push(form5Data);
+        submittedApplications.push(form6Data);
+        submittedApplications.push(form7Data);
+        submittedApplications.push(form8Data);
+        submittedApplications.push(form9Data);
+
+    }
+        //VIEW TABLE 
+    function viewSectionAsTable(sectionId, sectionData) {
+        // Get the div where the table will be displayed
+        const sectionTableDiv = document.getElementById(sectionId);
+
+        // Create a table element
+        const table = document.createElement('table');
+        table.border = "1";
+        // Create table headers
+        const headers = Object.keys(sectionData);
+        const headerRow = document.createElement('tr');
+        headers.forEach(headerText => {
+            const headerCell = document.createElement('th');
+            headerCell.appendChild(document.createTextNode(headerText));
+            headerRow.appendChild(headerCell);
+        });
+        table.appendChild(headerRow);
+        // Populate table with data
+        const row = document.createElement('tr');
+        headers.forEach(header => {
+            const cell = document.createElement('td');
+            cell.appendChild(document.createTextNode(sectionData[header]));
+            row.appendChild(cell);
+        });
+        table.appendChild(row);
+        // Clear previous table, if any
+        sectionTableDiv.innerHTML = '';
+        // Append table to div
+        sectionTableDiv.appendChild(table);
+    }
+    // Add event listener for form submission
+    const form = document.getElementById('jobApplicationForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        if (validateForm()) {
+            processFormData();
+        }
+    });
+   
+    // Add event listeners for viewing each section as a table
+    document.getElementById('viewPersonalInfoBtn').addEventListener('click', function() {
+        viewSectionAsTable('personalInfoTable', submittedApplications[0]);
+        viewSectionAsTable('resumeTable', submittedApplications[1]);
+        viewSectionAsTable('educationTable', submittedApplications[2]);
+        viewSectionAsTable('jobTitlesTable', submittedApplications[3]);
+        viewSectionAsTable('skillsTable', submittedApplications[4]);
+        viewSectionAsTable('availabilityTable', submittedApplications[5]);
+        viewSectionAsTable('referencesTable', submittedApplications[6]);
+        viewSectionAsTable('additionalQuestionsTable', submittedApplications[7]);
+        viewSectionAsTable('consentTable', submittedApplications[8]);
+    });
+    
+    //want to style tables but to make sure that styling is just when button clicked
+    document.getElementById('viewPersonalInfoBtn').addEventListener('click', function() {
+    if (submittedApplications.length > 0) {
+        viewSectionAsTable('personalInfoTable', submittedApplications[0]);
+        document.getElementById('personalInfoTable').style.display = 'block';
+        viewSectionAsTable('resumeTable', submittedApplications[1]);
+        document.getElementById('resumeTable').style.display = 'block';
+        viewSectionAsTable('educationTable', submittedApplications[2]);
+        document.getElementById('educationTable').style.display = 'block';
+        viewSectionAsTable('jobTitlesTable', submittedApplications[3]);
+        document.getElementById('jobTitlesTable').style.display = 'block';
+        viewSectionAsTable('skillsTable', submittedApplications[4]);
+        document.getElementById('skillsTable').style.display = 'block';
+        viewSectionAsTable('availabilityTable', submittedApplications[5]);
+        document.getElementById('availabilityTable').style.display = 'block';
+        viewSectionAsTable('referencesTable', submittedApplications[6]);
+        document.getElementById('referencesTable').style.display = 'block';
+        viewSectionAsTable('additionalQuestionsTable', submittedApplications[7]);
+        document.getElementById('additionalQuestionsTable').style.display = 'block';
+        viewSectionAsTable('consentTable', submittedApplications[8]);
+        document.getElementById('consentTable').style.display = 'block';
+    }
+    });
+
+</script>
+
+</html>
