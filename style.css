@@ -1,0 +1,23 @@
+body{
+    width: 70%;
+    margin: 0 auto; /* Center horizontally */
+    background-color: lightgrey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.start{
+    text-align: center;
+    font-weight: bold;
+}
+
+section {
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+}
+
+.bold_strong{
+        text-decoration: underline;
+        font-weight: bold;
+    }
